@@ -25,4 +25,23 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+})
+
+.controller('CalendarController', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
+.controller('TodayController', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
+.controller('UpcomingController', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+;
