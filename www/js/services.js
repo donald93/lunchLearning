@@ -20,6 +20,9 @@ angular.module('starter.services', [])
     remove: function(event) {
       events.splice(events.indexOf(event), 1);
     },
+    add: function(event){
+      events.push(event);
+    },
     get: function(eventId) {
       for (var i = 0; i < events.length; i++) {
         if (events[i].id === parseInt(eventId)) {
