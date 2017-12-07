@@ -27,10 +27,14 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('CalendarController', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+.controller('CalendarController', function($scope, Events) {
+  var events = Events.all();
+  $scope.eventSources =  [{
+    events: events,
+    color: 'green',
+    textColor: 'yellow'
+  },
+];
 })
 
 .controller('TodayController', function($scope) {
