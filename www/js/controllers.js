@@ -27,7 +27,24 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('CalendarController', function($scope, Events) {
+.controller('CalendarController', function($scope, Events, uiCalendarConfig, $compile, $timeout) {
+    $scope.dayClick = function( date, jsEvent, view){
+        console.log(date + ' was clicked ');
+    };
+  
+    $scope.uiConfig = {
+      calendar:{
+        height: 450,
+        editable: true,
+        header:{
+          left: 'title',
+          center: '',
+          right: 'today prev,next'
+        },
+        dayClick: $scope.dayClick
+      }
+    };
+
   var events = Events.all();
   $scope.eventSources =  [{
     events: events,
