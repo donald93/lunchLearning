@@ -27,9 +27,16 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('CalendarController', function($scope, Events, uiCalendarConfig, $compile, $timeout) {
+.controller('CalendarController', function($scope, Events, $ionicModal) {
+      $ionicModal.fromTemplateUrl('/templates/add-event-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal){
+        $scope.modal = modal;
+      });
+
     $scope.dayClick = function( date, jsEvent, view){
-        console.log(date + ' was clicked ');
+      $scope.modal.show();
     };
   
     $scope.uiConfig = {
