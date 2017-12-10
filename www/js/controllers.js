@@ -64,6 +64,7 @@ angular.module('starter.controllers', [])
 
     $scope.CloseModal = function()
     {
+      $scope.newEvent = {};
       if($scope.modal)
       {
         $scope.modal.hide();
@@ -72,6 +73,10 @@ angular.module('starter.controllers', [])
 
     $scope.AddEvent = function(newEvent)
     {
+      if(event.allDay)
+      {
+        event.time = "";
+      }
       Events.add(newEvent);
       $scope.newEvent = {};
       $scope.modal.hide();
