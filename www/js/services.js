@@ -11,7 +11,12 @@ angular.module('starter.services', [])
     title: "Wave",
     start: '2017-12-09',
     end: '2017-12-10'
-  }];
+  },
+{
+  title: "Today",
+  start: "2017-12-10",
+  end: "2017-12-11"
+}];
 
   return {
     all: function() {
