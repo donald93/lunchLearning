@@ -52,7 +52,38 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('TodayController', function ($scope, Events) {
+  .controller('TodayController', function ($scope, Events, $ionicModal) {
+    $scope.newEvent = {};
+    $ionicModal.fromTemplateUrl('/templates/add-event-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.fabClick = function () {
+      var date = new Date();
+      date.setHours(0,0,0,0);
+      $scope.newEvent.date = date;
+      $scope.modal.show();
+    };
+    $scope.CloseModal = function () {
+      $scope.newEvent = {};
+      if ($scope.modal) {
+        $scope.modal.hide();
+      }
+    };
+
+    $scope.AddEvent = function (newEvent) {
+      if (event.allDay) {
+        event.time = "";
+      }
+      Events.add(newEvent);
+      $scope.newEvent = {};
+      $scope.modal.hide();
+      init();
+    };
+
     var today = new Date();
     today.setHours(0, 0, 0, 0);
     function doesEventTakePlaceToday(e) {
@@ -66,7 +97,11 @@ angular.module('starter.controllers', [])
       return new Date(e.start) <= today && new Date(e.end) >= today;
     }
 
+    function init(){
     var unfilteredEvents = Events.all();
     $scope.events = unfilteredEvents.filter(doesEventTakePlaceToday);
+    }
+
+    init();
 
   });
