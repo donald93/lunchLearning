@@ -27,6 +27,7 @@ angular.module('starter.services', [])
     },
     add: function(event){
       cordova.plugins.notification.local.schedule({
+        id: event.date.getTime(),
         title: event.title,
         text: "Hey I'm your phone are you listening?",
         trigger: { at: event.date}
