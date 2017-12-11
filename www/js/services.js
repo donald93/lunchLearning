@@ -26,6 +26,11 @@ angular.module('starter.services', [])
       events.splice(events.indexOf(event), 1);
     },
     add: function(event){
+      cordova.plugins.notification.local.schedule({
+        title: event.title,
+        text: "Hey I'm your phone are you listening?",
+        trigger: { at: event.date}
+    });
       events.push(event);
     },
     get: function(eventId) {

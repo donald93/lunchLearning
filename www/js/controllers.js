@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
   .controller('CalendarController', function ($scope, Events, $ionicModal) {
     $scope.newEvent = {};
-    $ionicModal.fromTemplateUrl('/templates/add-event-modal.html', {
+    $ionicModal.fromTemplateUrl('./templates/add-event-modal.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function (modal) {
@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
 
   .controller('TodayController', function ($scope, Events, $ionicModal) {
     $scope.newEvent = {};
-    $ionicModal.fromTemplateUrl('/templates/add-event-modal.html', {
+    $ionicModal.fromTemplateUrl('./templates/add-event-modal.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function (modal) {
