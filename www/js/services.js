@@ -14,8 +14,8 @@ angular.module('starter.services', [])
   },
 {
   title: "Today",
-  start: "2017-12-10",
-  end: "2017-12-11"
+  start: "2017-12-19",
+  end: "2017-12-20"
 }];
 
   return {
@@ -26,12 +26,6 @@ angular.module('starter.services', [])
       events.splice(events.indexOf(event), 1);
     },
     add: function(event){
-      cordova.plugins.notification.local.schedule({
-        id: event.date.getTime(),
-        title: event.title,
-        text: "Hey I'm your phone are you listening?",
-        trigger: { at: event.date}
-    });
       events.push(event);
     },
     get: function(eventId) {
