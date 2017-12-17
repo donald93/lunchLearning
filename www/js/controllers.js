@@ -52,5 +52,5 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('TodayController', function ($scope, Events, $ionicModal) {
+  .controller('TodayController', function ($scope) {
   });
